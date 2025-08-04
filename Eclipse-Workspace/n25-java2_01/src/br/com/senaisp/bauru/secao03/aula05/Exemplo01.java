@@ -1,0 +1,17 @@
+package br.com.senaisp.bauru.secao03.aula05;
+
+public class Exemplo01 {
+
+	public static void main(String[] args) {
+		char letra = 'A';
+		System.out.println(letra);
+		letra++;
+		System.out.println(letra);
+		letra--;
+		System.out.println(letra);
+		System.out.println(letra + letra);
+		System.out.println("" + letra + letra);		
+		
+	}
+
+}

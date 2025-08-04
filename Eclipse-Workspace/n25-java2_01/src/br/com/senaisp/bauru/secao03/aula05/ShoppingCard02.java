@@ -1,0 +1,16 @@
+package br.com.senaisp.bauru.secao03.aula05;
+
+public class ShoppingCard02 {
+
+	public static void main(String[] args) {
+		//declarar as variaveis
+		String custName ="Alex";
+		String itemDesc = "Camiseta";
+		
+		//Montar a mensagem
+		String message = custName + " quer comprar" + " 1 " + itemDesc;
+		//imprimir a mensagem
+		System.out.println(message);
+	}
+
+}
