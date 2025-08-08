@@ -6,13 +6,11 @@ public class Calculadora {
 	//Propriedades - Campo
 	private double imposto;
 	private double comissao;
-	private double grandeTotal;
 
 	//constructor
 	public Calculadora() {
 		imposto = 5;
 		comissao = 15;
-		grandeTotal = 0;
 	}
 	
 	//Comportamentos Getters e Setters
@@ -32,29 +30,9 @@ public class Calculadora {
 	public void setComissao(double comissao) {
 		this.comissao = comissao;
 	}
-	public double getGrandeTotal() {
-		return grandeTotal;
-	}
-	private void addGrandeTotal (double valor) {
-		this.grandeTotal += valor;
-	}
-	
-	public void zerarGrandeTotal () {
-		this.grandeTotal = 0;
-	}
-
 	public double calcularTotal(String nome, double valorGasto) {
 		double ret = Math.round(valorGasto *(1 + getImposto()/100 + getComissao()/100)*100)/100.;
-		addGrandeTotal(ret);
 		System.out.println(nome + ": R$ " + ret);
 		return ret;
-		
 		}
-	public double dividirValor(int qtdPagantes) {
-		double ret = 0;
-		if (qtdPagantes>0) {
-			ret = getGrandeTotal()/qtdPagantes; 
-		}
-		return ret;
-	}
 }

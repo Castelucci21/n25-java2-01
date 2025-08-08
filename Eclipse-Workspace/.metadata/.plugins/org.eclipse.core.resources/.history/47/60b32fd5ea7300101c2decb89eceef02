@@ -50,11 +50,4 @@ public class Calculadora {
 		return ret;
 		
 		}
-	public double dividirValor(int qtdPagantes) {
-		double ret = 0;
-		if (qtdPagantes>0) {
-			ret = getGrandeTotal()/qtdPagantes; 
-		}
-		return ret;
-	}
 }

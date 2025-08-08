@@ -12,11 +12,8 @@ public class CalculadoraTest {
 		calc.calcularTotal("Pessoa 6", 15);
 		calc.calcularTotal("Pessoa 7", 11);
 		calc.calcularTotal("Pessoa 8", 30);
-		System.out.println("Total da mesa " + calc.getGrandeTotal());
+		calc.getGrandeTotal();
 		
-		// Dividindo a conta com os seis pagantes
-		
-		System.out.println("A divisão para os 6 pagantes ficou em " + Math.round(calc.dividirValor(6)*100)/100.0);		
 	}
 
 }
