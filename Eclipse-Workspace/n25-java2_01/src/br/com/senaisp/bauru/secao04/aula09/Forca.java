@@ -1,0 +1,47 @@
+package br.com.senaisp.bauru.secao04.aula09;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Forca {
+	private String PalavraSecreta;
+	private String PalavraMascarada;
+	private int Erros;
+	private Random rnd;
+	
+	//Constructor
+	public Forca() {
+		rnd = new Random();
+		int linhaEscolhida =rnd.nextInt(100);
+		int linhaAtual = 0;
+		Scanner sc = new Scanner(Forca.class.getResourceAsStream("palavra.txt"));
+		while (sc.hasNextLine()) {
+			String apoio = sc.nextLine();
+			if (linhaAtual==linhaEscolhida) {
+				PalavraSecreta = "" + apoio;
+				PalavraMascarada = "_".repeat(PalavraSecreta.length());
+				break;
+			}
+			linhaAtual++;
+		}sc.close();
+		Erros=7;
+	}
+
+	public String getPalavraMascarada() {
+		return PalavraMascarada;
+	}
+
+	public int getErros() {
+		return Erros;
+	}
+	
+	@Override
+	public String toString() {
+		String linha = " +----+ \n" +
+						" |  " + (Erros>=2  ? " \\" : " ") + (Erros >=1 ? "o" : " ") + (Erros >=3 ? "/" : " ") + "\n" + 
+						" | " + (Erros >= 4 ? "   |" : " " ) + "\n"
+						 + (Erros>=5 ? "     /" : " ") + " " + (Erros>=6 ? "\\" : " ") + "\n";
+		return linha;
+	}
+
+}
