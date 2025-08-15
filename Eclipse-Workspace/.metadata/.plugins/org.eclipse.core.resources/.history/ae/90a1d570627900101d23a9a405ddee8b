@@ -1,0 +1,16 @@
+package br.com.senaisp.bauru.secao06.aula12;
+
+import java.util.Random;
+
+public class TicTacToe {
+	private char [] tab;
+	private String nomePlayer;
+	private byte[]posDisp;
+	private Random rnd;
+	//Constructor
+	
+	public TicTacToe() {
+		tab = new char[9]; //Criando vetor de 9 posições
+		rnd = new Random();
+	}
+}
