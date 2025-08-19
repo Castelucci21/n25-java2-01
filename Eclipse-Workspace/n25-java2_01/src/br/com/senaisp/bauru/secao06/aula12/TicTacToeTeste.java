@@ -8,6 +8,10 @@ public class TicTacToeTeste {
 		TicTacToe tc = new TicTacToe();
 		Scanner sc = new Scanner(System.in);
 		tc.IniciarTabuleiro();
+		//Pedindo o nome do player 
+		System.out.println("Digite seu nome: ");
+		tc.setNomePlayer(sc.nextLine());
+		//----------------------
 		do {
 		tc.mostrarTabuleiro();
 		System.out.println("Digite a casa desejada (1-9): ");
@@ -16,6 +20,7 @@ public class TicTacToeTeste {
 		
 	}while(!tc.ehFimJogo());
 	tc.mostrarTabuleiro();
+	System.out.println("O vencedor foi" + tc.getVencedor());
 	sc.close();
 }
 }

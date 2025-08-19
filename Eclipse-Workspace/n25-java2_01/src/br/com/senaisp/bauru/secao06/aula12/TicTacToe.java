@@ -19,6 +19,14 @@ public class TicTacToe {
 		}
 	}
 
+	public String getVencedor() {
+		return Vencedor;
+	}
+
+	public void setVencedor(String vencedor) {
+		Vencedor = vencedor;
+	}
+
 	public String getNomePlayer() {
 		return nomePlayer;
 	}
@@ -69,6 +77,27 @@ public class TicTacToe {
 			int idx = rnd.nextInt(posDisp.length);
 			tab[posDisp[idx]] = 'X';
 			atualizarPosLivre(posDisp[idx]);
+			
+			if (posDisp.length>0 && ehFimJogo())
+				Vencedor = "Computador";
+			if (posDisp.length==0 && ehFimJogo())
+				Vencedor = "Empate";
+			//Verificar se ocorreu uma trinca do Computador
+			boolean teste =tab[0]=='X' && tab[1]=='X' && tab[2]=='X';
+			teste = teste || tab[3]=='X' && tab[4]=='X' && tab[5]=='X';
+			teste = teste || tab[6]=='X' && tab[7]=='X' && tab[8]=='X';
+			//Verificando as colunas
+			teste = teste || tab[0]=='X' && tab[3]=='X' && tab[6]=='X';
+			teste = teste || tab[1]=='X' && tab[4]=='X' && tab[7]=='X';
+			teste = teste || tab[2]=='X' && tab[5]=='X' && tab[8]=='X';
+			//Verificando as diagonais
+			teste = teste || tab[0]=='X' && tab[4]=='X' && tab[8]=='X';
+			teste = teste || tab[2]=='X' && tab[4]=='X' && tab[6]=='X';
+			//se o teste for verdadeiro, computador ganhou 
+			
+			if(teste)
+				Vencedor = "Computador";
+
 		}
 	}
 
