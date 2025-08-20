@@ -1,0 +1,27 @@
+package br.com.senaisp.bauru.secao08.aula13;
+
+import java.util.Scanner;
+
+public class BlackJackGameTeste {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		BlackJackGame gam = new BlackJackGame();
+		String nomeJogador = "Null";
+		do {
+			System.out.println("Digite o nome do Player (sair p/ terminar");
+			nomeJogador = sc.nextLine();
+			if (!nomeJogador.toLowerCase().equals("sair")) {
+				BlackJackPlayer pla = new BlackJackPlayer();
+				pla.setNome(nomeJogador);
+				gam.getPlayers().add(pla); //adcionando ao Jogo
+				//Lançando duas cartas para o player
+				gam.solicitarCarta(gam.getPlayers().size()-1);
+				gam.solicitarCarta(gam.getPlayers().size()-1);
+			}
+			
+		}while (!nomeJogador.equals("Sair")&& gam.getPlayers().size()<9);
+		//Aqui começa o Jogo. . . 
+	}
+
+}

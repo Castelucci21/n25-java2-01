@@ -15,7 +15,7 @@ public class Baralho {
 		disponiveis = new byte[cartas.length];
 		//criando as cartas
 		for (int i=0;i<cartas.length;i++) {
-			cartas[i] = new Carta(i / 3, i % 13);
+			cartas[i] = new Carta(i % 3, i % 13);
 			//guardando os índices disponíveis
 			disponiveis[i] = (byte) i;
 			}

@@ -1,0 +1,16 @@
+package br.com.senaisp.bauru.secao08.aula13;
+
+import java.util.Scanner;
+
+public class BlackJackGameTeste {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		BlackJackGame gam = new BlackJackGame();
+		String nomeJogador;
+		do {
+			
+		}while (!nomeJogador.equals("Sair")&& gam. );
+	}
+
+}
