@@ -6,7 +6,7 @@ public class PessoaFisica extends Pessoa {
 		setTipoPessoa('F');
 	}
 	//Constructor com 
-	public PessoaFisica(String nom, String doc, String ende, String dtNas) throws Exception {
+	public PessoaFisica(String nom, String doc, String ende, String dtNas) throws DocumentException, EnderecoException {
 		super(nom,doc,ende,dtNas);
 		setTipoPessoa('F'); //Usando o constructor da classe pai
 	}

@@ -17,4 +17,8 @@
     <fullyQualifiedTypeName name="java.util.InputMismatchException"/>
     <fullyQualifiedTypeName name="java.io.ObjectInputStream.GetField"/>
     <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
+    <fullyQualifiedTypeName name="br.com.senaisp.bauru.secao08.aula15.EnderecoException"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="br.com.senaisp.bauru.secao08.aula15.DocumentException"/>
+    <fullyQualifiedTypeName name="br.com.senaisp.bauru.lara.classes.ConectorBancoDados"/>
 </qualifiedTypeNameHistroy>
