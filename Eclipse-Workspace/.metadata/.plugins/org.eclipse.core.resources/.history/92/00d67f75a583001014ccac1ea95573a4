@@ -1,0 +1,18 @@
+package br.com.senaisp.bauru.lara.teste;
+
+import java.sql.SQLException;
+
+import br.com.senaisp.bauru.lara.classes.Produto;
+
+public class ProdutoTeste {
+
+	public static void main(String[] args) {
+		try {
+			Produto prd = Produto.create("Produto xpto",5.0,12.20);
+			System.out.println("Porduto " + prd.getId());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+}
