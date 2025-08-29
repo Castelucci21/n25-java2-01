@@ -11,9 +11,6 @@
     <fullyQualifiedTypeName name="br.com.senaisp.bauru.secao05.aula11.Carta"/>
     <fullyQualifiedTypeName name="br.com.senaisp.bauru.secao08.aula13.BlackJackPlayer"/>
     <fullyQualifiedTypeName name="java.lang.ArithmeticException"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
-    <fullyQualifiedTypeName name="java.util.InputMismatchException"/>
     <fullyQualifiedTypeName name="java.io.ObjectInputStream.GetField"/>
     <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
     <fullyQualifiedTypeName name="br.com.senaisp.bauru.secao08.aula15.EnderecoException"/>
@@ -21,11 +18,14 @@
     <fullyQualifiedTypeName name="br.com.senaisp.bauru.secao08.aula15.DocumentException"/>
     <fullyQualifiedTypeName name="java.beans.Statement"/>
     <fullyQualifiedTypeName name="java.sql.Statement"/>
-    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-    <fullyQualifiedTypeName name="br.com.senaisp.bauru.lara.classes.Produto"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="br.com.senaisp.bauru.lara.classes.ConectorBancoDados"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.util.InputMismatchException"/>
+    <fullyQualifiedTypeName name="br.com.senaisp.bauru.lara.classes.Produto"/>
 </qualifiedTypeNameHistroy>
