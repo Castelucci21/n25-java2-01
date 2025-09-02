@@ -25,6 +25,10 @@ public class Produto {
 		conn = ConectorBancoDados.getInstancia();
 	}
 
+	public Produto() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getDescricao() {
 		return descricao;
 	}
@@ -71,6 +75,7 @@ public class Produto {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				Produto prod = parseResultado(rs);
+				prd.add(prod);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

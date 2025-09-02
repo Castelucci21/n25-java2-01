@@ -2,6 +2,7 @@ package br.com.senaisp.bauru.lara.teste;
 
 import java.sql.SQLException;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 import br.com.senaisp.bauru.lara.classes.Produto;
@@ -22,6 +23,7 @@ public class CadastramentoProdutos {
 			System.out.println(" Escolha sua opção: ");
 			try {
 				op = sc.nextInt();
+				sc.nextLine();
 			} catch (InputMismatchException e) {
 				op = 0;
 				sc.nextLine();
@@ -31,14 +33,32 @@ public class CadastramentoProdutos {
 			case 1 -> cadastrarProduto(sc);
 			case 2 -> listarProduto(sc);
 			case 3 -> consultarProduto(sc);
-			case 4 -> cadastrarProduto(sc);
+			case 4 -> alterarProduto(sc);
 			case 5 -> ExcluirProduto(sc);
 			case 9 -> System.out.println("Até mais");
 			default -> System.out.println("Opção Inválida");
 			}
+			if(op>0&&op<6) {
+				System.out.println("Pressione enter para continuar!");
+				sc.nextLine();
+			}
 
 		} while (op != 9);
 
+	}
+
+	private static void alterarProduto(Scanner sc) {
+		do {
+			Produto prod = pesquisarProduto(sc);
+			if(prod!=null) {
+				mostrarProduto(prod);
+				solicitarProdutos(sc, prod);
+			String conf = confirmarOperacao("Deseja gravar as alterações? (S/N): ", sc);
+				
+			}else {
+				System.out.println("Produto não encontrado!");
+			}
+		}while(true);
 	}
 
 	private static Object ExcluirProduto(Scanner sc) {
@@ -46,14 +66,52 @@ public class CadastramentoProdutos {
 		return null;
 	}
 
-	private static Object consultarProduto(Scanner sc) {
-		// TODO Auto-generated method stub
-		return null;
+	private static void consultarProduto(Scanner sc) {
+		do {
+		Produto prod = pesquisarProduto(sc);
+		if (prod!=null) {
+			mostrarProduto(prod);
+		}else {
+			System.out.println("Produto não encontrado!");
+		}
+		String conf = confirmarOperacao("Deseja pesquisar um novo produto?", sc);
+		if(conf.toLowerCase().equals("n")) {
+			break;
+		}
+		}while(true);
 	}
 
-	private static Object listarProduto(Scanner sc) {
-		// TODO Auto-generated method stub
-		return null;
+	private static void mostrarProduto(Produto prod) {
+		System.out.println("Produto " + prod.getDescricao());
+		System.out.println("Saldo " + prod.getSaldo());
+		System.out.println("Preço " + prod.getPreco());
+	}
+
+	private static Produto pesquisarProduto(Scanner sc) {
+		Produto prod = null;
+		do {
+				System.out.println("Digite o ID a ser pesquisado: ");
+				try {
+				int pId = sc.nextInt();
+				prod =Produto.consultarProdutoPorId(pId);
+				break;
+			}catch (InputMismatchException e) {
+				System.out.println("Somente valores inteiros!");
+				sc.nextLine();
+			}
+		}while(true);
+		return prod;
+	}
+
+	private static void listarProduto(Scanner sc) {
+		List<Produto> lista = Produto.listarProdutos();
+		for(Produto it : lista) {
+			System.out.print("Produto: " + it.getDescricao());
+			System.out.print(" - " + it.getId());
+			System.out.println(" Saldo: " + it.getSaldo());
+
+		}
+		System.out.println("Fim da listagem. . .");
 	}
 
 	private static void cadastrarProduto(Scanner sc) {
@@ -62,33 +120,50 @@ public class CadastramentoProdutos {
 		do {
 
 			try {
-				System.out.println("Digite a descrição: ");
-				String desc = sc.nextLine();
-
-				System.out.println("Digite o Saldo: ");
-				double saldo = sc.nextDouble();
-
-				System.out.println("Digite o Preço: ");
-				double preco = sc.nextDouble();
-
+				String desc;
+				double saldo, preco;
+				Produto prod = new Produto();
+				solicitarProdutos(sc, prod);
 				sc.nextLine();
 				System.out.println("Confirma gravação do produto? (S/N)? ");
 				String conf = sc.nextLine();
 
 				if (conf.toLowerCase().equals("s")) {
 					try {
-						Produto.create(desc, saldo, preco);
+						Produto.create(prod.getDescricao(),prod.getSaldo(), prod.getPreco());
 					} catch (SQLException e) {
 						System.out.println("Problema ao gravar registro! " + e.getMessage());
 					}
 				}
-
+				conf = confirmarOperacao("Deseja continuar cadastrando? (S/N): ",sc);
+						if (conf.toLowerCase().equals("n")) {
+							break;
+						}
 			} catch (InputMismatchException e) {
 				System.out.println("Por favor, digite somente números! ");
+				sc.nextLine();
 
 			}
 		} while (true);
 
+	}
+
+	private static void solicitarProdutos(Scanner sc, Produto prod) {
+		System.out.println("Digite a descrição: ");
+		prod.setDescricao(sc.nextLine());
+
+		System.out.println("Digite o Saldo: ");
+		prod.setSaldo(sc.nextDouble());
+
+		System.out.println("Digite o Preço: ");
+		prod.setPreco(sc.nextDouble());
+	}
+
+	private static String confirmarOperacao(String msg,Scanner sc) {
+		String conf;
+		System.out.println(msg);
+		conf =sc.nextLine();
+		return conf;
 	}
 
 }
