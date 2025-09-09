@@ -2,6 +2,10 @@ import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.CycleMethod;
+import javafx.scene.paint.LinearGradient;
+import javafx.scene.paint.RadialGradient;
+import javafx.scene.paint.Stop;
 import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
 
@@ -10,13 +14,31 @@ public class JavaFXExemplo03 extends Application {
 	@Override
 	public void start(Stage primaryStage ) throws Exception {
 		Group noRoot = new Group();
+		
+		//Angulo foco, distancia foco, centroX, centroY, raio, forma  Ciclos gradiente, stops
+		LinearGradient lg = new LinearGradient(0, 1, 1, 0, true, CycleMethod.NO_CYCLE, new Stop[]{
+			new Stop(0,Color.RED),
+			new Stop(0.5,Color.PURPLE),
+			new Stop(0.9,Color.BLUE)
+			
+
+		
+		}); 
+		
+		RadialGradient rg = new RadialGradient(0, 0, 0.5, 0.5, 1, true, CycleMethod.NO_CYCLE, new Stop [] {
+				new Stop(0,Color.YELLOW),
+				new Stop(0.25,Color.RED),
+				new Stop(0.25,Color.TRANSPARENT)
+			
+		});
 		Polygon triangulo = new Polygon(new double[] {
 			210.0,10,
 			210.0, 210.0,
 			10.0, 210.0
 			
 		});
-		triangulo.setFill(Color.rgb(0, 0, 255,0.5));
+		//triangulo.setFill(Color.rgb(0, 0, 255,0.5));
+		triangulo.setFill(rg);
 		triangulo.setLayoutX(50);
 		triangulo.setLayoutY(50);
 		//Adicionando o triangulo ao group
